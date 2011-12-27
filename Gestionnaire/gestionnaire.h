@@ -15,6 +15,9 @@ public:
     explicit Gestionnaire(QWidget *parent = 0);
     ~Gestionnaire();
 
+private slots:
+    void on_actionQuitter_triggered();
+
 private:
     Ui::Gestionnaire *ui;
 };

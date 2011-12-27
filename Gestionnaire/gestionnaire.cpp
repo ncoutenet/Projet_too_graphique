@@ -12,3 +12,8 @@ Gestionnaire::~Gestionnaire()
 {
     delete ui;
 }
+
+void Gestionnaire::on_actionQuitter_triggered()
+{
+    QCoreApplication::quit();
+}
