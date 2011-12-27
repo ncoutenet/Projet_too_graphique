@@ -11,8 +11,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        gestionnaire.cpp
+        gestionnaire.cpp \
+    dialogajout.cpp
 
-HEADERS  += gestionnaire.h
+HEADERS  += gestionnaire.h \
+    dialogajout.h
 
-FORMS    += gestionnaire.ui
+FORMS    += gestionnaire.ui \
+    dialogajout.ui
