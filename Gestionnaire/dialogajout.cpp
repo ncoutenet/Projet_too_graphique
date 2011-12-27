@@ -26,7 +26,7 @@ void DialogAjout::on_pbCancel_clicked()
 
 void DialogAjout::on_pbOk_clicked()
 {
-//sauvegarder ici le nouvel objet
+    //sauvegarder ici le nouvel objet
     this->close();
 }
 
