@@ -23,6 +23,8 @@ private slots:
 
     void on_pbAjout_clicked();
 
+    void on_actionAjouter_triggered();
+
 private:
     Ui::Gestionnaire *ui;
     std::vector<std::string> _listMangas;

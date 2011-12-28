@@ -29,3 +29,9 @@ void Gestionnaire::on_pbAjout_clicked()
     DialogAjout *dialog = new DialogAjout(this);
     dialog->exec();
 }
+
+void Gestionnaire::on_actionAjouter_triggered()
+{
+    DialogAjout *dialog = new DialogAjout(this);
+    dialog->exec();
+}
