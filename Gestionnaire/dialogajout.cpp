@@ -21,6 +21,16 @@ DialogAjout::~DialogAjout()
     delete ui;
 }
 
+std::string DialogAjout::getTitle()
+{
+    return _title;
+}
+
+std::string DialogAjout::getCat()
+{
+    return _categorie;
+}
+
 void DialogAjout::sauvegarde()
 {
     std::ofstream fichier;
@@ -43,6 +53,9 @@ void DialogAjout::sauvegarde()
         {
             std::cerr << "Fichier introuvable!!!" << std::endl;
         }
+
+        _title = _myManga.getTitle();
+        _categorie = "Manga";
     }
     else if (ui->comboBox->currentText() == "Comic")
     {
@@ -61,6 +74,9 @@ void DialogAjout::sauvegarde()
         {
             std::cerr << "Fichier introuvable!!!" << std::endl;
         }
+
+        _title = _myComic.getTitle();
+        _categorie = "Comic";
     }
     else if (ui->comboBox->currentText() == "Roman")
     {
@@ -79,6 +95,9 @@ void DialogAjout::sauvegarde()
         {
             std::cerr << "Fichier introuvable!!!" << std::endl;
         }
+
+        _title = _myRoman.getTitle();
+        _categorie = "Roman";
     }
     else if (ui->comboBox->currentText() == "Article")
     {
@@ -98,6 +117,9 @@ void DialogAjout::sauvegarde()
         {
             std::cerr << "Fichier introuvable!!!" << std::endl;
         }
+
+        _title = _myArticle.getTitle();
+        _categorie = "Article";
     }
 }
 
@@ -108,7 +130,6 @@ void DialogAjout::on_pbCancel_clicked()
 
 void DialogAjout::on_pbOk_clicked()
 {
-    //sauvegarder ici le nouvel objet
     sauvegarde();
     this->close();
 }

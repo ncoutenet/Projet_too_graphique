@@ -19,6 +19,8 @@ public:
     explicit DialogAjout(QWidget *parent = 0);
     ~DialogAjout();
     void sauvegarde();
+    std::string getTitle();
+    std::string getCat();
 
 private slots:
     void on_pbCancel_clicked();
@@ -45,6 +47,8 @@ private:
     Comic _myComic;
     Roman _myRoman;
     Article _myArticle;
+    std::string _title;
+    std::string _categorie;
 };
 
 #endif // DIALOGAJOUT_H
