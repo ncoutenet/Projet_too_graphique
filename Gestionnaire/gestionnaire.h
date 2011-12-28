@@ -40,6 +40,7 @@ private:
     void _export();
     void _initialisation();
     void _sauvegarde();
+    void _suppression(std::string, std::string);
 };
 
 #endif // GESTIONNAIRE_H

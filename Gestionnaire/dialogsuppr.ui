@@ -52,9 +52,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>70</y>
      <width>241</width>
-     <height>41</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -83,6 +83,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="linstruction">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>231</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Veuillez saisir le titre du document:</string>
+   </property>
   </widget>
  </widget>
  <resources/>

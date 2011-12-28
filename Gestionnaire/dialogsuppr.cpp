@@ -6,6 +6,8 @@ DialogSuppr::DialogSuppr(QWidget *parent) :
     ui(new Ui::DialogSuppr)
 {
     ui->setupUi(this);
+    ui->linstruction->hide();
+    ui->leTitre->hide();
 }
 
 DialogSuppr::~DialogSuppr()
@@ -25,17 +27,35 @@ void DialogSuppr::changeEvent(QEvent *e)
     }
 }
 
+std::string DialogSuppr::getTitle()
+{
+    return _title;
+}
+
+std::string DialogSuppr::getCat()
+{
+    return _categorie;
+}
+
 void DialogSuppr::on_pbValider_clicked()
 {
     std::string name, file;
+    if (ui->leTitre->text() != NULL)
+    {
+        name = ui->leTitre->text().toStdString();
+        _title = name;
 
-    name = ui->leTitre->text().toStdString();
+        file = " rm ../Elements/";
+        file += name;
+        file += ".txt";
 
-    file = " rm ../Elements/";
-    file += name;
-    file += ".txt";
+        system(file.c_str());
+    }
 
-    system(file.c_str());
+    if (ui->comboBox->currentText() != "Choisir le type de document")
+    {
+        _categorie = ui->comboBox->currentText().toStdString();
+    }
 
     this->close();
 }
@@ -43,4 +63,18 @@ void DialogSuppr::on_pbValider_clicked()
 void DialogSuppr::on_pbAnnuler_clicked()
 {
     this->close();
+}
+
+void DialogSuppr::on_comboBox_activated(QString )
+{
+    if (ui->comboBox->currentText() == "Choisir le type de document")
+    {
+        ui->linstruction->hide();
+        ui->leTitre->hide();
+    }
+    else
+    {
+        ui->linstruction->show();
+        ui->leTitre->show();
+    }
 }

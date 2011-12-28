@@ -1,3 +1,0 @@
-Titre: test
-Auteur: a
-Editeur: e
