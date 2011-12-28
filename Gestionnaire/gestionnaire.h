@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <vector>
 #include <string>
+#include <fstream>
 
 namespace Ui {
     class Gestionnaire;
@@ -19,6 +20,10 @@ public:
     void initGestionnaire();
 
 private slots:
+    void on_pbExpor_clicked();
+    void on_actionExporter_triggered();
+    void on_actionSupprimer_triggered();
+    void on_pbSuppr_clicked();
     void on_actionQuitter_triggered();
 
     void on_pbAjout_clicked();
@@ -31,6 +36,7 @@ private:
     std::vector<std::string> _listComics;
     std::vector<std::string> _listRomans;
     std::vector<std::string> _listArticles;
+    void _export();
 };
 
 #endif // GESTIONNAIRE_H
