@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <iostream>
 
 namespace Ui {
     class Gestionnaire;
@@ -37,6 +38,8 @@ private:
     std::vector<std::string> _listRomans;
     std::vector<std::string> _listArticles;
     void _export();
+    void _initialisation();
+    void _sauvegarde();
 };
 
 #endif // GESTIONNAIRE_H
