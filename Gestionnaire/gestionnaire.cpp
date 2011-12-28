@@ -149,3 +149,129 @@ void Gestionnaire::on_actionExporter_triggered()
 {
     _export();
 }
+
+void Gestionnaire::_initialisation()
+{
+    std::string ligne;
+    std::ifstream manga("../Sources/listMangas.txt");
+    if (manga)
+    {
+        while(getline(manga, ligne))
+        {
+            _listMangas.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cerr<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    manga.close();
+
+    std::ifstream comic("../Sources/listComics.txt");
+    if (comic)
+    {
+        while(getline(comic, ligne))
+        {
+            _listComics.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cerr<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    comic.close();
+
+    std::ifstream roman("../Sources/listRomans.txt");
+    if (roman)
+    {
+        while(getline(roman, ligne))
+        {
+            _listRomans.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cerr<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    roman.close();
+
+    std::ifstream article("../Sources/listArticles.txt");
+    if (article)
+    {
+        while(getline(article, ligne))
+        {
+            _listArticles.push_back(ligne);
+        }
+    }
+    else
+    {
+        std::cerr<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
+    }
+    article.close();
+}
+
+///function _sauvegarde() (whitch is private) for saving the lists of documents
+void Gestionnaire::_sauvegarde()
+{
+    unsigned int i;
+    std::string ligne;
+    std::ofstream fichier("../Sources/listArticles.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listArticles.size(); i++)
+        {
+            ligne = _listArticles.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cerr<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
+    fichier.open("../Sources/listRomans.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listRomans.size(); i++)
+        {
+            ligne = _listRomans.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cerr<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
+    fichier.open("../Sources/listComics.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listComics.size(); i++)
+        {
+            ligne = _listComics.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cerr<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+
+    fichier.open("../Sources/listMangas.txt", std::ios::out | std::ios::trunc);
+    if (fichier)
+    {
+        for (i = 0; i < _listMangas.size(); i++)
+        {
+            ligne = _listMangas.at(i);
+            fichier << ligne << std::endl;
+        }
+        fichier.close();
+    }
+    else
+    {
+        std::cerr<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
+    }
+}

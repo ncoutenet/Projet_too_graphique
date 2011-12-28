@@ -36,6 +36,8 @@ void DialogSuppr::on_pbValider_clicked()
     file += ".txt";
 
     system(file.c_str());
+
+    this->close();
 }
 
 void DialogSuppr::on_pbAnnuler_clicked()
