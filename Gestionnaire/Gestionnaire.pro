@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     document.cpp \
     comic.cpp \
     bd.cpp \
-    article.cpp
+    article.cpp \
+    dialogsuppr.cpp
 HEADERS += gestionnaire.h \
     dialogajout.h \
     roman.hh \
@@ -23,6 +24,8 @@ HEADERS += gestionnaire.h \
     document.hh \
     comic.hh \
     bd.hh \
-    article.hh
+    article.hh \
+    dialogsuppr.hh
 FORMS += gestionnaire.ui \
-    dialogajout.ui
+    dialogajout.ui \
+    dialogsuppr.ui
