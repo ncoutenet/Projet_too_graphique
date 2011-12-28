@@ -18,10 +18,7 @@ class DialogAjout : public QDialog
 public:
     explicit DialogAjout(QWidget *parent = 0);
     ~DialogAjout();
-    Manga getManga();
-    Comic getComic();
-    Roman getRoman();
-    Article getArticle();
+    void sauvegarde();
 
 private slots:
     void on_pbCancel_clicked();

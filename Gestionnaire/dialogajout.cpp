@@ -1,5 +1,7 @@
 #include "dialogajout.h"
 #include "ui_dialogajout.h"
+#include <fstream>
+#include <iostream>
 
 DialogAjout::DialogAjout(QWidget *parent) :
     QDialog(parent),
@@ -19,24 +21,84 @@ DialogAjout::~DialogAjout()
     delete ui;
 }
 
-Manga DialogAjout::getManga()
+void DialogAjout::sauvegarde()
 {
-    return _myManga;
-}
+    std::ofstream fichier;
+    std::string name = "../Elements/";
+    if (ui->comboBox->currentText() == "Manga")
+    {
+        name += _myManga.getTitle();
+        name += ".txt";
+        fichier.open(name.c_str(), std::ios::trunc);
 
-Comic DialogAjout::getComic()
-{
-    return _myComic;
-}
+        if (fichier)
+        {
+            fichier << "Titre: " << _myManga.getTitle() << std::endl;
+            fichier << "Auteur: " << _myManga.getAuthor() << std::endl;
+            fichier << "Editeur: " << _myManga.getEditor() << std::endl;
+            fichier << "Type: " << _myManga.getType() << std::endl;
+            fichier.close();
+        }
+        else
+        {
+            std::cerr << "Fichier introuvable!!!" << std::endl;
+        }
+    }
+    else if (ui->comboBox->currentText() == "Comic")
+    {
+        name += _myComic.getTitle();
+        name += ".txt";
+        fichier.open(name.c_str(), std::ios::trunc);
 
-Roman DialogAjout::getRoman()
-{
-    return _myRoman;
-}
+        if (fichier)
+        {
+            fichier << "Titre: " << _myComic.getTitle() << std::endl;
+            fichier << "Auteur: " << _myComic.getAuthor() << std::endl;
+            fichier << "Editeur: " << _myComic.getEditor() << std::endl;
+            fichier.close();
+        }
+        else
+        {
+            std::cerr << "Fichier introuvable!!!" << std::endl;
+        }
+    }
+    else if (ui->comboBox->currentText() == "Roman")
+    {
+        name += _myRoman.getTitle();
+        name += ".txt";
+        fichier.open(name.c_str(), std::ios::trunc);
 
-Article DialogAjout::getArticle()
-{
-    return _myArticle;
+        if (fichier)
+        {
+            fichier << "Titre: " << _myRoman.getTitle() << std::endl;
+            fichier << "Auteur: " << _myRoman.getAuthor() << std::endl;
+            fichier << "Editeur: " << _myRoman.getEditor() << std::endl;
+            fichier.close();
+        }
+        else
+        {
+            std::cerr << "Fichier introuvable!!!" << std::endl;
+        }
+    }
+    else if (ui->comboBox->currentText() == "Article")
+    {
+        name += _myArticle.getTitle();
+        name += ".txt";
+        fichier.open(name.c_str(), std::ios::trunc);
+
+        if (fichier)
+        {
+            fichier << "Titre: " << _myArticle.getTitle() << std::endl;
+            fichier << "Auteur: " << _myArticle.getAuthor() << std::endl;
+            fichier << "Thème: " << _myArticle.getTheme() << std::endl;
+            fichier << "Date de parution: "<< _myArticle.getDateParution() <<std::endl;
+            fichier.close();
+        }
+        else
+        {
+            std::cerr << "Fichier introuvable!!!" << std::endl;
+        }
+    }
 }
 
 void DialogAjout::on_pbCancel_clicked()
@@ -47,6 +109,7 @@ void DialogAjout::on_pbCancel_clicked()
 void DialogAjout::on_pbOk_clicked()
 {
     //sauvegarder ici le nouvel objet
+    sauvegarde();
     this->close();
 }
 
