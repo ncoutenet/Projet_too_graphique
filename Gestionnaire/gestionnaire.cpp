@@ -2,7 +2,6 @@
 #include "ui_gestionnaire.h"
 #include "dialogajout.h"
 #include "dialogsuppr.hh"
-#include <iostream>
 
 Gestionnaire::Gestionnaire(QWidget *parent) :
     QMainWindow(parent),
@@ -28,8 +27,27 @@ void Gestionnaire::on_actionQuitter_triggered()
 
 void Gestionnaire::on_pbAjout_clicked()
 {
+    std::string name;
+    std::string categ;
     DialogAjout *dialog = new DialogAjout(this);
     dialog->exec();
+
+    if (categ == "Manga")
+    {
+        _listMangas.push_back(name);
+    }
+    else if (categ == "Comic")
+    {
+        _listComics.push_back(name);
+    }
+    else if (categ == "Roman")
+    {
+        _listRomans.push_back(name);
+    }
+    else if (categ == "Article")
+    {
+        _listArticles.push_back(name);
+    }
 }
 
 void Gestionnaire::on_actionAjouter_triggered()
@@ -52,13 +70,11 @@ void Gestionnaire::on_actionAjouter_triggered()
     else if (categ == "Roman")
     {
         _listRomans.push_back(name);
-        std::cerr<<_listRomans[0]<<std::endl;
     }
     else if (categ == "Article")
     {
         _listArticles.push_back(name);
     }
-
 }
 
 void Gestionnaire::on_pbSuppr_clicked()
