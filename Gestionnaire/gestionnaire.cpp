@@ -9,6 +9,8 @@ Gestionnaire::Gestionnaire(QWidget *parent) :
     ui(new Ui::Gestionnaire)
 {
     ui->setupUi(this);
+    for(int i = 0; i < 7; i++)
+        ui->tableWidget->setColumnWidth(i, 141);
 }
 
 Gestionnaire::~Gestionnaire()
@@ -248,6 +250,15 @@ void Gestionnaire::_initialisation()
 {
     std::string ligne;
     std::ifstream manga("../Sources/listMangas.txt");
+    unsigned int i;
+    std::string chemin;
+    QTableWidgetItem *titre;
+    QTableWidgetItem *auteur;
+    QTableWidgetItem *categorie;
+    QTableWidgetItem *theme;
+    QTableWidgetItem *date;
+    QTableWidgetItem *editeur;
+    QTableWidgetItem *type;
 
     if (manga)
     {
@@ -303,6 +314,22 @@ void Gestionnaire::_initialisation()
         std::cerr<<"Erreur: impossible d'ouvrir le fichier source!"<<std::endl;
     }
     article.close();
+
+    if (ui->tableWidget->rowCount() > 0)
+    {
+        ui->tableWidget->removeRow(0);
+    }
+
+    for (i = 0; i < _listMangas.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listMangas[i];
+        chemin += ".txt";
+        ui->tableWidget->insertRow(0);
+        titre = new QTableWidgetItem();
+
+
+    }
 }
 
 ///function _sauvegarde() (whitch is private) for saving the lists of documents
