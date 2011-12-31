@@ -252,6 +252,7 @@ void Gestionnaire::_initialisation()
     std::ifstream manga("../Sources/listMangas.txt");
     unsigned int i;
     std::string chemin;
+    QString nom;
     QTableWidgetItem *titre;
     QTableWidgetItem *auteur;
     QTableWidgetItem *categorie;
@@ -326,9 +327,72 @@ void Gestionnaire::_initialisation()
         chemin += _listMangas[i];
         chemin += ".txt";
         ui->tableWidget->insertRow(0);
+        manga.open(chemin.c_str());
+
         titre = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        titre->setText(nom);
+        auteur = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        auteur->setText(nom);
+        editeur = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        editeur->setText(nom);
+        type = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        type->setText(nom);
+        categorie = new QTableWidgetItem();
+        nom = "Manga";
+        categorie->setText(nom);
 
+        manga.close();
+        ui->tableWidget->setItem(0,0,titre);
+        ui->tableWidget->setItem(0,1,auteur);
+        ui->tableWidget->setItem(0,2,categorie);
+        ui->tableWidget->setItem(0,5,editeur);
+        ui->tableWidget->setItem(0,6,type);
+    }
 
+    for (i = 0; i < _listComics.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listComics[i];
+        chemin += ".txt";
+        ui->tableWidget->insertRow(0);
+        manga.open(chemin.c_str());
+
+        titre = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        titre->setText(nom);
+        auteur = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        auteur->setText(nom);
+        editeur = new QTableWidgetItem();
+        manga >> ligne;
+        manga >> ligne;
+        nom = nom.fromStdString(ligne);
+        editeur->setText(nom);
+        categorie = new QTableWidgetItem();
+        nom = "Comic";
+        categorie->setText(nom);
+
+        manga.close();
+        ui->tableWidget->setItem(0,0,titre);
+        ui->tableWidget->setItem(0,1,auteur);
+        ui->tableWidget->setItem(0,2,categorie);
+        ui->tableWidget->setItem(0,5,editeur);
     }
 }
 
