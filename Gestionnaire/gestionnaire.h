@@ -31,6 +31,8 @@ private slots:
 
     void on_actionAjouter_triggered();
 
+    void on_actionManuel_triggered();
+
 private:
     Ui::Gestionnaire *ui;
     std::vector<std::string> _listMangas;

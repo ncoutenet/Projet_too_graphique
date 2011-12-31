@@ -374,6 +374,6 @@ void Gestionnaire::_sauvegarde()
 
 void Gestionnaire::on_actionManuel_triggered()
 {
-    DialogManuel *dialog = new DialogManuel();
-    dialog.exec();
+    DialogManuel *dialog = new DialogManuel(this);
+    dialog->exec();
 }
