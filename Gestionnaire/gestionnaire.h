@@ -7,6 +7,10 @@
 #include <fstream>
 #include <iostream>
 
+#include "dialogajout.h"
+#include "dialogsuppr.hh"
+#include "dialogmanuel.hh"
+
 namespace Ui {
     class Gestionnaire;
 }
@@ -18,7 +22,6 @@ class Gestionnaire : public QMainWindow
 public:
     explicit Gestionnaire(QWidget *parent = 0);
     ~Gestionnaire();
-    void initGestionnaire();
 
 private slots:
     void on_pbExpor_clicked();

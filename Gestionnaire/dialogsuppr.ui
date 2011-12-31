@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Supprimer un document</string>
   </property>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">

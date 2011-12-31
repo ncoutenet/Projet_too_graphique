@@ -1,14 +1,12 @@
 #include "gestionnaire.h"
 #include "ui_gestionnaire.h"
-#include "dialogajout.h"
-#include "dialogsuppr.hh"
-#include "dialogmanuel.hh"
 
 Gestionnaire::Gestionnaire(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Gestionnaire)
 {
     ui->setupUi(this);
+    _initialisation();
     for(int i = 0; i < 7; i++)
         ui->tableWidget->setColumnWidth(i, 141);
 }
@@ -16,11 +14,6 @@ Gestionnaire::Gestionnaire(QWidget *parent) :
 Gestionnaire::~Gestionnaire()
 {
     delete ui;
-}
-
-void Gestionnaire::initGestionnaire()
-{
-    _initialisation();
 }
 
 void Gestionnaire::_suppression(std::string title, std::string categ)
@@ -348,22 +341,22 @@ void Gestionnaire::_affmangas()
 
         titre = new QTableWidgetItem();
         manga >> ligne;
-        manga >> ligne;
+        std::getline(manga, ligne);
         nom = nom.fromStdString(ligne);
         titre->setText(nom);
         auteur = new QTableWidgetItem();
         manga >> ligne;
-        manga >> ligne;
+        std::getline(manga, ligne);
         nom = nom.fromStdString(ligne);
         auteur->setText(nom);
         editeur = new QTableWidgetItem();
         manga >> ligne;
-        manga >> ligne;
+        std::getline(manga, ligne);
         nom = nom.fromStdString(ligne);
         editeur->setText(nom);
         type = new QTableWidgetItem();
         manga >> ligne;
-        manga >> ligne;
+        std::getline(manga, ligne);
         nom = nom.fromStdString(ligne);
         type->setText(nom);
         categorie = new QTableWidgetItem();
@@ -401,17 +394,17 @@ void Gestionnaire::_affComics()
 
         titre = new QTableWidgetItem();
         comic >> ligne;
-        comic >> ligne;
+        std::getline(comic, ligne);
         nom = nom.fromStdString(ligne);
         titre->setText(nom);
         auteur = new QTableWidgetItem();
         comic >> ligne;
-        comic >> ligne;
+        std::getline(comic, ligne);
         nom = nom.fromStdString(ligne);
         auteur->setText(nom);
         editeur = new QTableWidgetItem();
         comic >> ligne;
-        comic >> ligne;
+        std::getline(comic, ligne);
         nom = nom.fromStdString(ligne);
         editeur->setText(nom);
         categorie = new QTableWidgetItem();
@@ -448,21 +441,21 @@ void Gestionnaire::_affRomans()
 
         titre = new QTableWidgetItem();
         roman >> ligne;
-        roman >> ligne;
+        std::getline(roman, ligne);
         nom = nom.fromStdString(ligne);
         titre->setText(nom);
         auteur = new QTableWidgetItem();
         roman >> ligne;
-        roman >> ligne;
+        std::getline(roman, ligne);
         nom = nom.fromStdString(ligne);
         auteur->setText(nom);
         editeur = new QTableWidgetItem();
         roman >> ligne;
-        roman >> ligne;
+        std::getline(roman, ligne);
         nom = nom.fromStdString(ligne);
         editeur->setText(nom);
         categorie = new QTableWidgetItem();
-        nom = "Comic";
+        nom = "Roman";
         categorie->setText(nom);
 
         roman.close();
@@ -497,26 +490,28 @@ void Gestionnaire::_affArticles()
 
         titre = new QTableWidgetItem();
         article >> ligne;
-        article >> ligne;
+        std::getline(article, ligne);
         nom = nom.fromStdString(ligne);
         titre->setText(nom);
         auteur = new QTableWidgetItem();
         article >> ligne;
-        article >> ligne;
+        std::getline(article, ligne);
         nom = nom.fromStdString(ligne);
         auteur->setText(nom);
         theme = new QTableWidgetItem();
         article >> ligne;
-        article >> ligne;
+        std::getline(article, ligne);
         nom = nom.fromStdString(ligne);
         theme->setText(nom);
         date = new QTableWidgetItem();
         article >> ligne;
         article >> ligne;
+        article >> ligne;
+        std::getline(article, ligne);
         nom = nom.fromStdString(ligne);
         date->setText(nom);
         categorie = new QTableWidgetItem();
-        nom = "Comic";
+        nom = "Article";
         categorie->setText(nom);
 
         article.close();
