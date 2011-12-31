@@ -42,6 +42,11 @@ private:
     void _export();
     void _initialisation();
     void _sauvegarde();
+    void _affmangas();
+    void _affComics();
+    void _affRomans();
+    void _affArticles();
+    void _initTab();
     void _suppression(std::string, std::string);
 };
 
