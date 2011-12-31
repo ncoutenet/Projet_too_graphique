@@ -2,6 +2,8 @@
 #define DIALOGSUPPR_HH
 
 #include <QDialog>
+#include <cstdio>
+#include <iostream>
 
 namespace Ui {
     class DialogSuppr;

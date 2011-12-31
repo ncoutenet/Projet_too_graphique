@@ -40,16 +40,22 @@ std::string DialogSuppr::getCat()
 void DialogSuppr::on_pbValider_clicked()
 {
     std::string name, file;
+    int i;
     if (ui->leTitre->text() != NULL)
     {
         name = ui->leTitre->text().toStdString();
         _title = name;
 
-        file = " rm ../Elements/";
-        file += name;
+        file = "../Elements/";
+        file += name.c_str();
         file += ".txt";
 
-        system(file.c_str());
+        i = remove(file.c_str());
+
+        if(i != 0)
+        {
+            std::cerr<<"Fichier '"<<name<<"' introuvable!!!"<<std::endl;
+        }
     }
 
     if (ui->comboBox->currentText() != "Choisir le type de document")
