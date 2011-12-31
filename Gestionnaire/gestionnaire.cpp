@@ -2,6 +2,7 @@
 #include "ui_gestionnaire.h"
 #include "dialogajout.h"
 #include "dialogsuppr.hh"
+#include "dialogmanuel.hh"
 
 Gestionnaire::Gestionnaire(QWidget *parent) :
     QMainWindow(parent),
@@ -369,4 +370,10 @@ void Gestionnaire::_sauvegarde()
     {
         std::cerr<<"Erreur! Impossible d'ouvrir le fichier!"<<std::endl;
     }
+}
+
+void Gestionnaire::on_actionManuel_triggered()
+{
+    DialogManuel *dialog = new DialogManuel();
+    dialog.exec();
 }
