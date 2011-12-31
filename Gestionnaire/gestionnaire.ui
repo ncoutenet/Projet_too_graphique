@@ -125,7 +125,7 @@
     <string>manuel</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+?</string>
+    <string>Ctrl+I</string>
    </property>
   </action>
   <action name="actionAjouter">
@@ -141,7 +141,7 @@
     <string>Supprimer...</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Backspace</string>
+    <string>Ctrl+R</string>
    </property>
   </action>
   <action name="actionQuitter">
