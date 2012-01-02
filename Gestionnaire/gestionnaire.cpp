@@ -310,7 +310,10 @@ void Gestionnaire::_initTab()
 {
     if (ui->tableWidget->rowCount() > 0)
     {
-        ui->tableWidget->removeRow(0);
+        while (ui->tableWidget->rowCount() > 0)
+        {
+            ui->tableWidget->removeRow(0);
+        }
     }
     _affmangas();
     _affComics();
