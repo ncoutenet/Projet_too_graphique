@@ -6,6 +6,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <QtAlgorithms>
 
 #include "dialogajout.h"
 #include "dialogsuppr.hh"
@@ -36,6 +37,10 @@ private slots:
 
     void on_actionManuel_triggered();
 
+    void on_actionPar_titre_triggered();
+
+    void on_actionPar_auteur_triggered();
+
 private:
     Ui::Gestionnaire *ui;
     std::vector<std::string> _listMangas;
@@ -52,6 +57,8 @@ private:
     void _initTab();
     void _suppression(std::string, std::string);
     void _razTable();
+    void _triAuthors();
+    void _tri(std::vector<std::string>&, std::vector<std::string>&, std::vector<std::string>&, std::vector<std::string>&);
 };
 
 #endif // GESTIONNAIRE_H

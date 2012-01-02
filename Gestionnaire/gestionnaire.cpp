@@ -603,3 +603,202 @@ void Gestionnaire::on_actionManuel_triggered()
     DialogManuel *dialog = new DialogManuel(this);
     dialog->exec();
 }
+
+void Gestionnaire::on_actionPar_titre_triggered()
+{
+    qSort(_listMangas.begin(), _listMangas.end(), qGreater<std::string>());
+    qSort(_listComics.begin(), _listComics.end(), qGreater<std::string>());
+    qSort(_listRomans.begin(), _listRomans.end(), qGreater<std::string>());
+    qSort(_listArticles.begin(), _listArticles.end(), qGreater<std::string>());
+    _sauvegarde();
+    _initTab();
+}
+
+void Gestionnaire::_tri(std::vector<std::string> &vect1, std::vector<std::string> &vect2, std::vector<std::string> &vect3, std::vector<std::string> &vect4)
+{
+    int i, j;
+    int nbTri, nbMax, pMin;
+
+    nbTri = vect1.size();
+    nbMax = nbTri;
+
+
+    for(i = 0; i < nbTri; i++)
+    {
+        pMin = 0;
+        for(j = 1; j < nbMax; j++)
+        {
+            if(vect1[j] > vect1[pMin])
+            {
+                pMin = j;
+            }
+        }
+        vect1.push_back(vect1[pMin]);
+        vect1.erase(vect1.begin()+pMin);
+        _listMangas.push_back(_listMangas[pMin]);
+        _listMangas.erase(_listMangas.begin()+pMin);
+        nbMax--;
+    }
+
+    nbTri = vect2.size();
+    nbMax = nbTri;
+
+
+    for(i = 0; i < nbTri; i++)
+    {
+        pMin = 0;
+        for(j = 1; j < nbMax; j++)
+        {
+            if(vect2[j] > vect2[pMin])
+            {
+                pMin = j;
+            }
+        }
+        vect2.push_back(vect2[pMin]);
+        vect2.erase(vect2.begin()+pMin);
+        _listComics.push_back(_listComics[pMin]);
+        _listComics.erase(_listComics.begin()+pMin);
+        nbMax--;
+    }
+
+    nbTri = vect2.size();
+    nbMax = nbTri;
+
+    for(i = 0; i < nbTri; i++)
+    {
+        pMin = 0;
+        for(j = 1; j > nbMax; j++)
+        {
+            if(vect3[j] > vect3[pMin])
+            {
+                pMin = j;
+            }
+        }
+        vect3.push_back(vect3[pMin]);
+        vect3.erase(vect3.begin()+pMin);
+        _listArticles.push_back(_listArticles[pMin]);
+        _listArticles.erase(_listArticles.begin()+pMin);
+        nbMax--;
+    }
+
+    nbTri = vect2.size();
+    nbMax = nbTri;
+
+    for(i = 0; i < nbTri; i++)
+    {
+        pMin = 0;
+        for(j = 1; j < nbMax; j++)
+        {
+            if(vect4[j] > vect4[pMin])
+            {
+                pMin = j;
+            }
+        }
+        vect4.push_back(vect4[pMin]);
+        vect4.erase(vect4.begin()+pMin);
+        _listRomans.push_back(_listRomans[pMin]);
+        _listRomans.erase(_listRomans.begin()+pMin);
+        nbMax--;
+    }
+}
+
+void Gestionnaire::_triAuthors()
+{
+    std::vector<std::string> vAutMang;
+    std::vector<std::string> vAutCom;
+    std::vector<std::string> vAutRom;
+    std::vector<std::string> vAutArt;
+    std::ifstream lecture;
+    std::string chemin;
+    std::string auteur;
+    unsigned int i;
+
+    for(i = 0; i < _listMangas.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listMangas[i];
+        chemin += ".txt";
+        lecture.open(chemin.c_str());
+        if (lecture)
+        {
+            std::getline(lecture, auteur);
+            lecture >> auteur;
+            std::getline(lecture, auteur);
+            vAutMang.push_back(auteur);
+            lecture.close();
+        }
+        else
+        {
+            std::cerr<<"Fichier '../Elements/"<<_listMangas[i]<<".txt' introuvable!!!"<<std::endl;
+        }
+    }
+
+    for(i = 0; i < _listComics.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listComics[i];
+        chemin += ".txt";
+        lecture.open(chemin.c_str());
+        if (lecture)
+        {
+            std::getline(lecture, auteur);
+            lecture >> auteur;
+            std::getline(lecture, auteur);
+            vAutCom.push_back(auteur);
+            lecture.close();
+        }
+        else
+        {
+            std::cerr<<"Fichier '../Elements/"<<_listMangas[i]<<".txt' introuvable!!!"<<std::endl;
+        }
+    }
+
+    for(i = 0; i < _listRomans.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listRomans[i];
+        chemin += ".txt";
+        lecture.open(chemin.c_str());
+        if (lecture)
+        {
+            std::getline(lecture, auteur);
+            lecture >> auteur;
+            std::getline(lecture, auteur);
+            vAutRom.push_back(auteur);
+            lecture.close();
+        }
+        else
+        {
+            std::cerr<<"Fichier '../Elements/"<<_listMangas[i]<<".txt' introuvable!!!"<<std::endl;
+        }
+    }
+
+    for(i = 0; i < _listArticles.size(); i++)
+    {
+        chemin = "../Elements/";
+        chemin += _listArticles[i];
+        chemin += ".txt";
+        lecture.open(chemin.c_str());
+        if (lecture)
+        {
+            std::getline(lecture, auteur);
+            lecture >> auteur;
+            std::getline(lecture, auteur);
+            vAutArt.push_back(auteur);
+            lecture.close();
+        }
+        else
+        {
+            std::cerr<<"Fichier '../Elements/"<<_listMangas[i]<<".txt' introuvable!!!"<<std::endl;
+        }
+    }
+
+    _tri(vAutMang, vAutCom, vAutRom, vAutArt);
+}
+
+void Gestionnaire::on_actionPar_auteur_triggered()
+{
+    _triAuthors();
+    _sauvegarde();
+    _initTab();
+}

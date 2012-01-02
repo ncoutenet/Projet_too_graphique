@@ -106,9 +106,17 @@
     <property name="title">
      <string>Fichier</string>
     </property>
+    <widget class="QMenu" name="menuTrier">
+     <property name="title">
+      <string>Trier...</string>
+     </property>
+     <addaction name="actionPar_titre"/>
+     <addaction name="actionPar_auteur"/>
+    </widget>
     <addaction name="actionAjouter"/>
     <addaction name="actionSupprimer"/>
     <addaction name="actionExporter"/>
+    <addaction name="menuTrier"/>
     <addaction name="actionQuitter"/>
    </widget>
    <widget class="QMenu" name="menuAide">
@@ -158,6 +166,16 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionPar_titre">
+   <property name="text">
+    <string>Par titre</string>
+   </property>
+  </action>
+  <action name="actionPar_auteur">
+   <property name="text">
+    <string>Par auteur</string>
    </property>
   </action>
  </widget>
