@@ -3,6 +3,7 @@
 
 #include "livre.hh"
 
+///class Roman, inheriting of class Livre
 class Roman : public Livre
 {
 public:

@@ -1,4 +1,0 @@
-Titre: manga
-Auteur: test
-Editeur: test
-Type: test
