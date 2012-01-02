@@ -7,11 +7,12 @@
 #include "article.hh"
 #include "comic.hh"
 
-///class DialogAjout, inheriting of class QDialog
+///namespace ui is generate by qt for make the code lighter
 namespace Ui {
     class DialogAjout;
 }
 
+///class DialogAjout, inheriting of class QDialog
 class DialogAjout : public QDialog
 {
     Q_OBJECT

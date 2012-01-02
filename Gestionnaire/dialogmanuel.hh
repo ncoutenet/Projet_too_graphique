@@ -3,11 +3,11 @@
 
 #include <QDialog>
 
-///class DialogAjout, inheriting of class QDialog
 namespace Ui {
     class DialogManuel;
 }
 
+///class DialogManuel, inheriting of class QDialog
 class DialogManuel : public QDialog {
     Q_OBJECT
 public:

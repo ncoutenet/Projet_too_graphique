@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title></title>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="search.css"/>
+<script type="text/javascript" src="search.js"></script>
+</head>
+<body class="SRPage">
+<div id="SRIndex">
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRResult" id="SR_sauvegarde">
+ <div class="SREntry">
+  <a id="Item0" onkeydown="return searchResults.Nav(event,0)" onkeypress="return searchResults.Nav(event,0)" onkeyup="return searchResults.Nav(event,0)" class="SRSymbol" href="../classDialogAjout.html#a72cebaf0d6182830a4a31c24b32911a8" target="_parent">sauvegarde</a>
+  <span class="SRScope">DialogAjout</span>
+ </div>
+</div>
+<div class="SRResult" id="SR_setauthor">
+ <div class="SREntry">
+  <a id="Item1" onkeydown="return searchResults.Nav(event,1)" onkeypress="return searchResults.Nav(event,1)" onkeyup="return searchResults.Nav(event,1)" class="SRSymbol" href="../classLivre.html#adeb5fca648e4ee21494782a43a7d805f" target="_parent">setAuthor</a>
+  <span class="SRScope">Livre</span>
+ </div>
+</div>
+<div class="SRResult" id="SR_setdateparution">
+ <div class="SREntry">
+  <a id="Item2" onkeydown="return searchResults.Nav(event,2)" onkeypress="return searchResults.Nav(event,2)" onkeyup="return searchResults.Nav(event,2)" class="SRSymbol" href="../classArticle.html#a00ee1ebbaf5e559732933dd29f0a9360" target="_parent">setDateParution</a>
+  <span class="SRScope">Article</span>
+ </div>
+</div>
+<div class="SRResult" id="SR_seteditor">
+ <div class="SREntry">
+  <a id="Item3" onkeydown="return searchResults.Nav(event,3)" onkeypress="return searchResults.Nav(event,3)" onkeyup="return searchResults.Nav(event,3)" class="SRSymbol" href="javascript:searchResults.Toggle('SR_seteditor')">setEditor</a>
+  <div class="SRChildren">
+    <a id="Item3_c0" onkeydown="return searchResults.NavChild(event,3,0)" onkeypress="return searchResults.NavChild(event,3,0)" onkeyup="return searchResults.NavChild(event,3,0)" class="SRScope" href="../classBD.html#ab2f657f8370b98b5d48789e89ff886f2" target="_parent">BD::setEditor()</a>
+    <a id="Item3_c1" onkeydown="return searchResults.NavChild(event,3,1)" onkeypress="return searchResults.NavChild(event,3,1)" onkeyup="return searchResults.NavChild(event,3,1)" class="SRScope" href="../classRoman.html#a8efc9c2048221b38f90d487bd321b1dc" target="_parent">Roman::setEditor()</a>
+  </div>
+ </div>
+</div>
+<div class="SRResult" id="SR_settheme">
+ <div class="SREntry">
+  <a id="Item4" onkeydown="return searchResults.Nav(event,4)" onkeypress="return searchResults.Nav(event,4)" onkeyup="return searchResults.Nav(event,4)" class="SRSymbol" href="../classArticle.html#a58990f0362ae7e950e1a1d4f4b9f9453" target="_parent">setTheme</a>
+  <span class="SRScope">Article</span>
+ </div>
+</div>
+<div class="SRResult" id="SR_settitle">
+ <div class="SREntry">
+  <a id="Item5" onkeydown="return searchResults.Nav(event,5)" onkeypress="return searchResults.Nav(event,5)" onkeyup="return searchResults.Nav(event,5)" class="SRSymbol" href="../classDocument.html#a2be00cdaa69a39d54b5238211d0583de" target="_parent">setTitle</a>
+  <span class="SRScope">Document</span>
+ </div>
+</div>
+<div class="SRResult" id="SR_settype">
+ <div class="SREntry">
+  <a id="Item6" onkeydown="return searchResults.Nav(event,6)" onkeypress="return searchResults.Nav(event,6)" onkeyup="return searchResults.Nav(event,6)" class="SRSymbol" href="../classManga.html#a716ba88e31bc424d5508014887b6e019" target="_parent">setType</a>
+  <span class="SRScope">Manga</span>
+ </div>
+</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+<script type="text/javascript"><!--
+document.getElementById("Loading").style.display="none";
+document.getElementById("NoMatches").style.display="none";
+var searchResults = new SearchResults("searchResults");
+searchResults.Search();
+--></script>
+</div>
+</body>
+</html>

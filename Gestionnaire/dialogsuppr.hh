@@ -5,11 +5,11 @@
 #include <cstdio>
 #include <iostream>
 
-///class DialogAjout, inheriting of class QDialog
 namespace Ui {
     class DialogSuppr;
 }
 
+///class DialogSuppr, inheriting of class QDialog
 class DialogSuppr : public QDialog {
     Q_OBJECT
 public:
