@@ -16,6 +16,7 @@ namespace Ui {
     class Gestionnaire;
 }
 
+///class Gestionnaire, inheriting of class QMainWindow, it is the main window of the programme
 class Gestionnaire : public QMainWindow
 {
     Q_OBJECT
