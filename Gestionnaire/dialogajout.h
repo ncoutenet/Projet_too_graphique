@@ -7,6 +7,7 @@
 #include "article.hh"
 #include "comic.hh"
 
+///class DialogAjout, inheriting of class QDialog
 namespace Ui {
     class DialogAjout;
 }
