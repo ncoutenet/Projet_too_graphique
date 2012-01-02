@@ -3,6 +3,7 @@
 
 #include <string>
 
+///class Document, mother class of all document's type classes.
 class Document
 {
 public:

@@ -27,16 +27,20 @@ void DialogSuppr::changeEvent(QEvent *e)
     }
 }
 
+///function getTitle who return the title of the file to delete
 std::string DialogSuppr::getTitle()
 {
     return _title;
 }
 
+///function getCat who return the type of the file to delete
 std::string DialogSuppr::getCat()
 {
     return _categorie;
 }
 
+/**function activated by UI
+  this function select the file and remove it from the HDD**/
 void DialogSuppr::on_pbValider_clicked()
 {
     std::string name, file;
@@ -50,6 +54,7 @@ void DialogSuppr::on_pbValider_clicked()
         file += name.c_str();
         file += ".txt";
 
+        ///remove the file
         i = remove(file.c_str());
 
         if(i != 0)
@@ -57,20 +62,21 @@ void DialogSuppr::on_pbValider_clicked()
             std::cerr<<"Fichier '"<<name<<"' introuvable!!!"<<std::endl;
         }
     }
-
     if (ui->comboBox->currentText() != "Choisir le type de document")
     {
         _categorie = ui->comboBox->currentText().toStdString();
     }
-
     this->close();
 }
 
+///function activated by UI
 void DialogSuppr::on_pbAnnuler_clicked()
 {
     this->close();
 }
 
+/**function activated by the UI
+  this function select the lines to enter when the good document-type is selected**/
 void DialogSuppr::on_comboBox_activated(QString )
 {
     if (ui->comboBox->currentText() == "Choisir le type de document")
