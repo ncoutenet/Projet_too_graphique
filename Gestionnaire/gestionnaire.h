@@ -51,6 +51,7 @@ private:
     void _affArticles();
     void _initTab();
     void _suppression(std::string, std::string);
+    void _razTable();
 };
 
 #endif // GESTIONNAIRE_H

@@ -306,7 +306,7 @@ void Gestionnaire::_initialisation()
     _initTab();
 }
 
-void Gestionnaire::_initTab()
+void Gestionnaire::_razTable()
 {
     if (ui->tableWidget->rowCount() > 0)
     {
@@ -315,6 +315,11 @@ void Gestionnaire::_initTab()
             ui->tableWidget->removeRow(0);
         }
     }
+}
+
+void Gestionnaire::_initTab()
+{
+    _razTable();
     _affmangas();
     _affComics();
     _affRomans();
