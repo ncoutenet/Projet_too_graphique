@@ -16,6 +16,7 @@ Gestionnaire::~Gestionnaire()
     delete ui;
 }
 
+///function _suppression(std::string title, std::string categ) (whitch is private) for deleting a document
 void Gestionnaire::_suppression(std::string title, std::string categ)
 {
     unsigned int i;
@@ -92,11 +93,13 @@ void Gestionnaire::_suppression(std::string title, std::string categ)
     _sauvegarde();
 }
 
+///function on_actionQuitter_triggered() for waiting a clic on the menu 'Quitter'
 void Gestionnaire::on_actionQuitter_triggered()
 {
     QCoreApplication::quit();
 }
 
+///function on_pbAjout_clicked() for waiting a clic on the button 'Ajouter...'
 void Gestionnaire::on_pbAjout_clicked()
 {
     std::string name;
@@ -127,6 +130,7 @@ void Gestionnaire::on_pbAjout_clicked()
     _initTab();
 }
 
+///function on_actionAjouter_triggered() for waiting a clic on the menu 'Ajouter...'
 void Gestionnaire::on_actionAjouter_triggered()
 {
     std::string name;
@@ -157,6 +161,7 @@ void Gestionnaire::on_actionAjouter_triggered()
     _initTab();
 }
 
+///function on_pbSuppr_clicked() for waiting a clic on the button 'Supprimer...'
 void Gestionnaire::on_pbSuppr_clicked()
 {
     std::string name, categ;
@@ -169,6 +174,7 @@ void Gestionnaire::on_pbSuppr_clicked()
     _initTab();
 }
 
+///function on_actionSupprimer_triggered() for waiting a clic on the menu 'Supprimer...'
 void Gestionnaire::on_actionSupprimer_triggered()
 {
     std::string name, categ;
@@ -181,6 +187,7 @@ void Gestionnaire::on_actionSupprimer_triggered()
     _initTab();
 }
 
+///function _export() (whitch is private) for converting the list of documents to html format
 void Gestionnaire::_export()
 {
     std::string ligne;
@@ -233,16 +240,19 @@ void Gestionnaire::_export()
     }
 }
 
+///function on_pbExpor_clicked() for waiting a clic on the button 'Exporter'
 void Gestionnaire::on_pbExpor_clicked()
 {
     _export();
 }
 
+///function on_actionExporter_triggered() for waiting a clic on the menu 'Exporter'
 void Gestionnaire::on_actionExporter_triggered()
 {
     _export();
 }
 
+///function _initialisation() (whitch is private) for initialising the vectors whitch are used for making lists of documents
 void Gestionnaire::_initialisation()
 {
     std::string ligne;
@@ -306,6 +316,7 @@ void Gestionnaire::_initialisation()
     _initTab();
 }
 
+///function _razTable() (whitch is private) for deleting list of documents
 void Gestionnaire::_razTable()
 {
     if (ui->tableWidget->rowCount() > 0)
@@ -317,6 +328,7 @@ void Gestionnaire::_razTable()
     }
 }
 
+///function _razTable() (whitch is private) for initialising list of documents
 void Gestionnaire::_initTab()
 {
     _razTable();
@@ -326,6 +338,7 @@ void Gestionnaire::_initTab()
     _affArticles();
 }
 
+///function _affmangas() (whitch is private) for creating the list of mangas item by item
 void Gestionnaire::_affmangas()
 {
     QTableWidgetItem *titre;
@@ -380,6 +393,7 @@ void Gestionnaire::_affmangas()
     }
 }
 
+///function _affComics() (whitch is private) for creating the list of comics item by item
 void Gestionnaire::_affComics()
 {
     QTableWidgetItem *titre;
@@ -427,6 +441,7 @@ void Gestionnaire::_affComics()
     }
 }
 
+///function _affRomans() (whitch is private) for creating the list of novels item by item
 void Gestionnaire::_affRomans()
 {
     QTableWidgetItem *titre;
@@ -475,6 +490,7 @@ void Gestionnaire::_affRomans()
 
 }
 
+///function _affArticles() (whitch is private) for creating the list of articles item by item
 void Gestionnaire::_affArticles()
 {
     QTableWidgetItem *theme;
@@ -604,6 +620,7 @@ void Gestionnaire::on_actionManuel_triggered()
     dialog->exec();
 }
 
+///function on_actionPar_titre_triggered() for waiting a clic on the menu 'Par titre' for doing a sort by title
 void Gestionnaire::on_actionPar_titre_triggered()
 {
     qSort(_listMangas.begin(), _listMangas.end(), qGreater<std::string>());
@@ -614,6 +631,7 @@ void Gestionnaire::on_actionPar_titre_triggered()
     _initTab();
 }
 
+///function _tri() (whitch is private) for make a sort of 4 vectors of authors and sorting too the vectors used for the list in the same order
 void Gestionnaire::_tri(std::vector<std::string> &vect1, std::vector<std::string> &vect2, std::vector<std::string> &vect3, std::vector<std::string> &vect4)
 {
     int i, j;
@@ -702,6 +720,7 @@ void Gestionnaire::_tri(std::vector<std::string> &vect1, std::vector<std::string
     }
 }
 
+///function _triAuthors initialising the 4 vectors necessaries for the function _tri
 void Gestionnaire::_triAuthors()
 {
     std::vector<std::string> vAutMang;
@@ -796,6 +815,7 @@ void Gestionnaire::_triAuthors()
     _tri(vAutMang, vAutCom, vAutRom, vAutArt);
 }
 
+///function on_actionPar_auteur_triggered() for waiting a clic on the menu 'Par auteur' for doing a sort by author
 void Gestionnaire::on_actionPar_auteur_triggered()
 {
     _triAuthors();
