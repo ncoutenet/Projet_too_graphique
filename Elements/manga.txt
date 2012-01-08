@@ -1,4 +1,0 @@
-Titre: manga
-Auteur: auteur
-Editeur: editeur
-Type: type
